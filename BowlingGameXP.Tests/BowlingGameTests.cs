@@ -34,17 +34,17 @@ namespace BowlingGameXP.Tests
             Assert.That(bowlingGame.FinalScore(), Is.EqualTo(20));
         }
 
-        //[Test]
-        //public void SpareFollowedByANumberOfPinsShouldReturnCorrectScore()
-        //{
-        //    bowlingGame.Bowl(3);
-        //    bowlingGame.Bowl(7);
-        //    bowlingGame.Bowl(6);
+        [Test]
+        public void SpareFollowedByANumberOfPinsShouldReturnCorrectScore()
+        {
+            bowlingGame.Bowl(3);
+            bowlingGame.Bowl(7);
+            bowlingGame.Bowl(6);
 
-        //    runGame(17, 0);
+            runGame(17, 0);
 
-        //    Assert.That(bowlingGame.FinalScore(), Is.EqualTo(1));
-        //}
+            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(1));
+        }
 
         private void runGame(int bowls, int pins)
         {

@@ -8,16 +8,25 @@ namespace BowlingGameXP
 {
     public class BowlingGame
     {
-        int pins = 0;
+        private int[] bowls = new int[21];
+        private int bowlCount = 0;
+        private int pins = 0;
 
         public void Bowl(int pins)
         {
-            this.pins += pins;
+            bowls[bowlCount] = pins;
+            bowlCount++;
         }
 
         public int FinalScore()
         {
-            return pins;
+            int totalScore = 0;
+            foreach (int bowlScore in bowls)
+            {
+                totalScore += bowlScore;
+            }
+
+            return totalScore;
         }
     }
 }
