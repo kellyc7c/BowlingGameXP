@@ -23,5 +23,18 @@ namespace BowlingGameXP.Tests
             Assert.That(bowlingGame.FinalScore(), Is.EqualTo(0));
         }
 
+        [Test]
+        public void BowlingOneEveryTimeShouldReturnScoreOf20()
+        {
+            BowlingGame bowlingGame = new BowlingGame();
+
+            for (int i = 0; i < 20; i++)
+            {
+                bowlingGame.Bowl(1);
+            }
+
+            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(1));
+        }
+
     }
 }
