@@ -10,12 +10,12 @@ namespace BowlingGameXP.Tests
     [TestFixture]
     public class BowlingGameTests
     {
-        BowlingGame bowlingGame = new BowlingGame();
+        BowlingGame bowlingGame;
 
         [SetUp]
         public void SetUp()
         {
-            BowlingGame bowlingGame = new BowlingGame();
+            bowlingGame = new BowlingGame();
         }
 
         [Test]
@@ -27,12 +27,24 @@ namespace BowlingGameXP.Tests
         }
 
         [Test]
-        public void BowlingOneEveryTimeShouldReturnScoreOf20()
+        public void BowlingOneEveryTimeShouldReturnScoreOfTwenty()
         {
             runGame(20, 1);
 
-            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(1));
+            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(20));
         }
+
+        //[Test]
+        //public void SpareFollowedByANumberOfPinsShouldReturnCorrectScore()
+        //{
+        //    bowlingGame.Bowl(3);
+        //    bowlingGame.Bowl(7);
+        //    bowlingGame.Bowl(6);
+
+        //    runGame(17, 0);
+
+        //    Assert.That(bowlingGame.FinalScore(), Is.EqualTo(1));
+        //}
 
         private void runGame(int bowls, int pins)
         {

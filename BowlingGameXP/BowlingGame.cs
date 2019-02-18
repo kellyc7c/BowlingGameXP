@@ -12,7 +12,7 @@ namespace BowlingGameXP
 
         public void Bowl(int pins)
         {
-            this.pins = pins;
+            this.pins += pins;
         }
 
         public int FinalScore()
