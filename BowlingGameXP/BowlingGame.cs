@@ -10,7 +10,6 @@ namespace BowlingGameXP
     {
         private int[] bowls = new int[21];
         private int bowlCount = 0;
-        private int pins = 0;
 
         public void Bowl(int pins)
         {
