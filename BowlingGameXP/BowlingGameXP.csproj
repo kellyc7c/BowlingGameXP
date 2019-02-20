@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="BowlingGame.cs" />
     <Compile Include="Bowls.cs" />
-    <Compile Include="Frame.cs" />
+    <Compile Include="Frames.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

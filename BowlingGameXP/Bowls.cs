@@ -15,9 +15,27 @@ namespace BowlingGameXP
             bowls.Add(new Bowl(pins));
         }
 
-        public List<Bowl> GetBowls()
+        public Frames GetFrames()
         {
-            return bowls;
+            Frames frames = new Frames();
+
+            int bowlsIndex = 0;
+
+            for (int frameCount = 0;frameCount < 9; frameCount++, bowlsIndex += 2)
+            {
+                frames.AddFrame(new Frame(bowls[bowlsIndex], bowls[bowlsIndex + 1]));
+            }
+
+            if (bowls.Count - bowlsIndex == 2)
+            {
+                frames.AddFrame(new Frame(bowls[bowlsIndex], bowls[bowlsIndex + 1]));
+                return frames;
+            }
+
+            frames.AddFrame(new Frame(bowls[bowlsIndex], bowls[bowlsIndex + 1], bowls[bowlsIndex + 3]));
+            return frames;
+
+
         }
     }
 
