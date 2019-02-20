@@ -23,8 +23,7 @@ namespace BowlingGameXP
 
             for (int i = 0; i < 10; i++)
             {
-                totalScore += frames.GetFrame(i).Bowl(0).ToInt();
-                totalScore += frames.GetFrame(i).Bowl(1).ToInt();
+                totalScore += frames.GetFrame(i).GetIntermediateScore();
             }
 
             return totalScore;

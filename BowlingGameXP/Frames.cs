@@ -25,7 +25,6 @@ namespace BowlingGameXP
     {
         List<Bowl> bowls = new List<Bowl>();
 
-
         public Frame(Bowl bowl)
         {
             bowls.Add(bowl);
@@ -49,14 +48,16 @@ namespace BowlingGameXP
             return bowls.Count;
         }
 
-        public Bowl Bowl(int index)
+        public int GetIntermediateScore()
         {
-            if (index >= NumberOfBowls())
+            int total = 0;
+
+            foreach (Bowl bowl in bowls)
             {
-                return null;
+                total += bowl.ToInt();
             }
 
-            return bowls[index];
+            return total;
         }
     }
 }
