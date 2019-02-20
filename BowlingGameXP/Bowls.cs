@@ -8,11 +8,11 @@ namespace BowlingGameXP
 {
     class Bowls
     {
-        List<Bowl> bowls = new List<Bowl>();
+        List<BowlScore> bowls = new List<BowlScore>();
 
         public void AddBowl(int pins)
         {
-            bowls.Add(new Bowl(pins));
+            bowls.Add(new BowlScore(pins));
         }
 
         public Frames GetFrames()
@@ -21,7 +21,7 @@ namespace BowlingGameXP
 
             int bowlsIndex = 0;
 
-            for (int frameCount = 0;frameCount < 9; frameCount++, bowlsIndex += 2)
+            for (int frameCount = 0; frameCount < 9; frameCount++, bowlsIndex += 2)
             {
                 frames.AddFrame(new Frame(bowls[bowlsIndex], bowls[bowlsIndex + 1]));
             }
@@ -39,16 +39,16 @@ namespace BowlingGameXP
         }
     }
 
-    class Bowl
+    class BowlScore
     {
-        int pins;
+        private int pins;
 
-        public Bowl(int pins)
+        public BowlScore(int pins)
         {
             this.pins = pins;
         }
 
-        public bool Equals(Bowl bowl)
+        public bool Equals(BowlScore bowl)
         {
             if (this.pins == bowl.pins)
             {
@@ -56,6 +56,11 @@ namespace BowlingGameXP
             }
 
             return false;
+        }
+
+        public BowlScore Add(BowlScore score)
+        {
+            return new BowlScore(score.pins + this.pins);
         }
 
         public int ToInt()

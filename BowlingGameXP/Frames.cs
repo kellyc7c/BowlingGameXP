@@ -16,11 +16,6 @@ namespace BowlingGameXP
             frames.Add(frame);
         }
 
-        public Frame GetFrame(int index)
-        {
-            return frames[index];
-        }
-
         public IEnumerator<Frame> GetEnumerator()
         {
             foreach (Frame frame in frames)
@@ -37,20 +32,20 @@ namespace BowlingGameXP
 
     class Frame
     {
-        List<Bowl> bowls = new List<Bowl>();
+        List<BowlScore> bowls = new List<BowlScore>();
 
-        public Frame(Bowl bowl)
+        public Frame(BowlScore bowl)
         {
             bowls.Add(bowl);
         }
 
-        public Frame(Bowl firstBowl, Bowl secondBowl)
+        public Frame(BowlScore firstBowl, BowlScore secondBowl)
         {
             bowls.Add(firstBowl);
             bowls.Add(secondBowl);
         }
 
-        public Frame(Bowl firstBowl, Bowl secondBowl, Bowl thirdBowl)
+        public Frame(BowlScore firstBowl, BowlScore secondBowl, BowlScore thirdBowl)
         {
             bowls.Add(firstBowl);
             bowls.Add(secondBowl);
@@ -62,16 +57,16 @@ namespace BowlingGameXP
             return bowls.Count;
         }
 
-        public int GetIntermediateScore()
+        public BowlScore GetIntermediateScore()
         {
-            int total = 0;
+            BowlScore totalScore = new BowlScore(0);
 
-            foreach (Bowl bowl in bowls)
+            foreach (BowlScore bowl in bowls)
             {
-                total += bowl.ToInt();
+                totalScore = totalScore.Add(bowl);
             }
 
-            return total;
+            return totalScore;
         }
     }
 }

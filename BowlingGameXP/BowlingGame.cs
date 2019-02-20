@@ -17,16 +17,16 @@ namespace BowlingGameXP
 
         public int FinalScore()
         {
-            int totalScore = 0;
+            BowlScore totalScore = new BowlScore(0);
 
             Frames frames = bowls.GetFrames();
 
             foreach (Frame frame in frames)
             {
-                totalScore += frame.GetIntermediateScore();
+                totalScore = totalScore.Add(frame.GetIntermediateScore());
             }
 
-            return totalScore;
+            return totalScore.ToInt();
         }
     }
 }
