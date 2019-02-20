@@ -8,21 +8,19 @@ namespace BowlingGameXP
 {
     public class BowlingGame
     {
-        private int[] bowls = new int[21];
-        private int bowlCount = 0;
+        private Bowls bowls = new Bowls();
 
         public void Bowl(int pins)
         {
-            bowls[bowlCount] = pins;
-            bowlCount++;
+            bowls.AddBowl(pins);
         }
 
         public int FinalScore()
         {
             int totalScore = 0;
-            foreach (int bowlScore in bowls)
+            foreach (Bowl bowl in bowls.GetBowls())
             {
-                totalScore += bowlScore;
+                totalScore += bowl.ToInt();
             }
 
             return totalScore;
