@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BowlingGameXP
 {
-    class Frames
+    class Frames : IEnumerable<Frame>
     {
         List<Frame> frames = new List<Frame>();
 
@@ -18,6 +19,19 @@ namespace BowlingGameXP
         public Frame GetFrame(int index)
         {
             return frames[index];
+        }
+
+        public IEnumerator<Frame> GetEnumerator()
+        {
+            foreach (Frame frame in frames)
+            {
+                yield return frame;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 

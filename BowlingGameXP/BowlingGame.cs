@@ -21,9 +21,9 @@ namespace BowlingGameXP
 
             Frames frames = bowls.GetFrames();
 
-            for (int i = 0; i < 10; i++)
+            foreach (Frame frame in frames)
             {
-                totalScore += frames.GetFrame(i).GetIntermediateScore();
+                totalScore += frame.GetIntermediateScore();
             }
 
             return totalScore;
