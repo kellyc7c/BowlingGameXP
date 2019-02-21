@@ -50,13 +50,25 @@ namespace BowlingGameXP.Tests
         public void SpareInFinalFrameShouldReturnCorrectScore()
         {
             RunGame(18, 0);
+
             bowlingGame.Bowl(6);
             bowlingGame.Bowl(4);
             bowlingGame.Bowl(5);
 
-            
-
             Assert.That(bowlingGame.FinalScore(), Is.EqualTo(20));
+        }
+
+        [Test]
+        public void StrikeFollowedByTwoRollsShouldReturnCorrectScore()
+        {
+            bowlingGame.Bowl(10);
+            bowlingGame.Bowl(10);
+            bowlingGame.Bowl(6);
+            bowlingGame.Bowl(2);
+
+            RunGame(16, 0);
+
+            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(52));
         }
 
         private void RunGame(int bowls, int pins)

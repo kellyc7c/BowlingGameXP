@@ -68,6 +68,16 @@ namespace BowlingGameXP
             return false;
         }
 
+        public bool IsStrike()
+        {
+            if (bowls[0].Equals(new BowlScore(10)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public BowlScore AddSpareBonus(BowlScore currentScore)
         {
             return currentScore.Add(bowls[0]);

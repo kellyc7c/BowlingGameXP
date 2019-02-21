@@ -21,9 +21,16 @@ namespace BowlingGameXP
 
             int bowlsIndex = 0;
 
-            for (int frameCount = 0; frameCount < 9; frameCount++, bowlsIndex += 2)
+            for (int frameCount = 0; frameCount < 9; frameCount++)
             {
+                if (bowls[bowlsIndex].Equals(new BowlScore(10)))
+                {
+                    frames.AddFrame(new Frame(bowls[bowlsIndex]));
+                    bowlsIndex += 1;
+                    continue;
+                }
                 frames.AddFrame(new Frame(bowls[bowlsIndex], bowls[bowlsIndex + 1]));
+                bowlsIndex += 2;
             }
 
             if (bowls.Count - bowlsIndex == 2)

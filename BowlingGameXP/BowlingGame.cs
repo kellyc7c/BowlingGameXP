@@ -27,6 +27,16 @@ namespace BowlingGameXP
                 {
                     totalScore = frames[i+1].AddSpareBonus(totalScore);
                 }
+
+                if (frames[i].IsStrike() && i < frames.Count() - 1)
+                {
+                    if (frames[i + 1].IsStrike())
+                    {
+                        totalScore = frames[i + 2].AddSpareBonus(totalScore);
+                    }
+                    totalScore = totalScore.Add(frames[i + 1].GetIntermediateScore());
+                }
+
                 totalScore = totalScore.Add(frames[i].GetIntermediateScore());
             }
 
