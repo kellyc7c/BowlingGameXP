@@ -40,5 +40,20 @@ namespace BowlingGameXP
 
             return totalScore;
         }
+
+        public bool IsSpare()
+        {
+            if (bowls.Count > 1 && bowls[0].Add(bowls[1]).Equals(new BowlScore(10)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public BowlScore AddSpareBonus(BowlScore currentScore)
+        {
+            return currentScore.Add(bowls[0]);
+        }
     }
 }

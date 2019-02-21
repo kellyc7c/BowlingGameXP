@@ -11,6 +11,16 @@ namespace BowlingGameXP
     {
         List<Frame> frames = new List<Frame>();
 
+        public Frame this[int index]
+        {
+            get { return frames[index]; }
+        }
+
+        public int Count()
+        {
+            return frames.Count;
+        }
+
         public void AddFrame(Frame frame)
         {
             frames.Add(frame);
