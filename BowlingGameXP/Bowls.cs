@@ -32,7 +32,7 @@ namespace BowlingGameXP
                 return frames;
             }
 
-            frames.AddFrame(new Frame(bowls[bowlsIndex], bowls[bowlsIndex + 1], bowls[bowlsIndex + 3]));
+            frames.AddFrame(new Frame(bowls[bowlsIndex], bowls[bowlsIndex + 1], bowls[bowlsIndex + 2]));
             return frames;
         }
     }

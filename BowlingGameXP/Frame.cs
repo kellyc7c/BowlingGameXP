@@ -33,12 +33,29 @@ namespace BowlingGameXP
         {
             BowlScore totalScore = new BowlScore(0);
 
+            if (bowls.Count == 3)
+            {
+                totalScore = totalScore.Add(CalculateFinalFrameBonus());
+            }
+
+            
+
             foreach (BowlScore bowl in bowls)
             {
                 totalScore = totalScore.Add(bowl);
             }
 
             return totalScore;
+        }
+
+        private BowlScore CalculateFinalFrameBonus()
+        {
+            if (IsSpare())
+            {
+                return bowls[2];
+            }
+
+            return new BowlScore(0);
         }
 
         public bool IsSpare()

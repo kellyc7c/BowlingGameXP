@@ -23,7 +23,7 @@ namespace BowlingGameXP
 
             for (int i = 0; i < frames.Count(); i++)
             {
-                if (frames[i].IsSpare())
+                if (frames[i].IsSpare() && i < frames.Count() - 1)
                 {
                     totalScore = frames[i+1].AddSpareBonus(totalScore);
                 }

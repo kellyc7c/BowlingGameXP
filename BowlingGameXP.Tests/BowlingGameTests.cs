@@ -21,7 +21,7 @@ namespace BowlingGameXP.Tests
         [Test]
         public void BowlingZeroEveryTimeShouldReturnFinalScoreOfZero()
         {
-            runGame(20, 0);
+            RunGame(20, 0);
 
             Assert.That(bowlingGame.FinalScore(), Is.EqualTo(0));
         }
@@ -29,7 +29,7 @@ namespace BowlingGameXP.Tests
         [Test]
         public void BowlingOneEveryTimeShouldReturnScoreOfTwenty()
         {
-            runGame(20, 1);
+            RunGame(20, 1);
 
             Assert.That(bowlingGame.FinalScore(), Is.EqualTo(20));
         }
@@ -41,12 +41,25 @@ namespace BowlingGameXP.Tests
             bowlingGame.Bowl(7);
             bowlingGame.Bowl(6);
 
-            runGame(17, 0);
+            RunGame(17, 0);
 
             Assert.That(bowlingGame.FinalScore(), Is.EqualTo(22));
         }
 
-        private void runGame(int bowls, int pins)
+        [Test]
+        public void SpareInFinalFrameShouldReturnCorrectScore()
+        {
+            RunGame(18, 0);
+            bowlingGame.Bowl(6);
+            bowlingGame.Bowl(4);
+            bowlingGame.Bowl(5);
+
+            
+
+            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(20));
+        }
+
+        private void RunGame(int bowls, int pins)
         {
             for (int i = 0; i < bowls; i++)
             {
