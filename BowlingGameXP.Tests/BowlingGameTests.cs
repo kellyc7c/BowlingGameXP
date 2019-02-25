@@ -55,7 +55,7 @@ namespace BowlingGameXP.Tests
             bowlingGame.Bowl(4);
             bowlingGame.Bowl(5);
 
-            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(20));
+            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(15));
         }
 
         [Test]
@@ -81,7 +81,15 @@ namespace BowlingGameXP.Tests
             bowlingGame.Bowl(6);
             bowlingGame.Bowl(2);
 
-            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(52));
+            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(44));
+        }
+
+        [Test]
+        public void PerfectGameReturnsCorrectScore()
+        {
+            RunGame(12, 10);
+
+            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(300));
         }
 
         private void RunGame(int bowls, int pins)
