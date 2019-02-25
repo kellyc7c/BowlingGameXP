@@ -71,6 +71,19 @@ namespace BowlingGameXP.Tests
             Assert.That(bowlingGame.FinalScore(), Is.EqualTo(52));
         }
 
+        [Test]
+        public void StrikesInvolvingFinalFrameShouldReturnCorrectScore()
+        {
+            RunGame(16, 0);
+
+            bowlingGame.Bowl(10);
+            bowlingGame.Bowl(10);
+            bowlingGame.Bowl(6);
+            bowlingGame.Bowl(2);
+
+            Assert.That(bowlingGame.FinalScore(), Is.EqualTo(52));
+        }
+
         private void RunGame(int bowls, int pins)
         {
             for (int i = 0; i < bowls; i++)

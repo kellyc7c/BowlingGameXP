@@ -38,8 +38,6 @@ namespace BowlingGameXP
                 totalScore = totalScore.Add(CalculateFinalFrameBonus());
             }
 
-            
-
             foreach (BowlScore bowl in bowls)
             {
                 totalScore = totalScore.Add(bowl);
@@ -53,6 +51,11 @@ namespace BowlingGameXP
             if (IsSpare())
             {
                 return bowls[2];
+            }
+
+            if (IsStrike())
+            {
+                return bowls[1].Add(bowls[2]);
             }
 
             return new BowlScore(0);
@@ -76,6 +79,15 @@ namespace BowlingGameXP
             }
 
             return false;
+        }
+
+        public BowlScore StrikeBonus()
+        {
+            if (bowls.Count > 1)
+            {
+                return bowls[0].Add(bowls[1]);
+            }
+            return bowls[0];
         }
 
         public BowlScore AddSpareBonus(BowlScore currentScore)
